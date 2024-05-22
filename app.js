@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 //   })
 // );
 
-const port = 3001;
+const port = 80;
 
 app.use(adminRoutes);
 app.use(shopRoutes);
