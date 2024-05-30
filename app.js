@@ -26,7 +26,7 @@ const patientFormRoutes = require('./routes/patientform');
 
 const corsOptions = {
   credentials: true,
-  origin: ['http://localhost:3000', 'http://localhost:80'] // Whitelist the domains you want to allow
+  origin: ['http://localhost:3000', 'http://localhost:80', 'https://seizurecarenet.com', 'http://localhost:3001', 'https://localhost:3001'] // Whitelist the domains you want to allow
 };
 
 app.use(cors(corsOptions));
@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 //   })
 // );
 
-const port = 80;
+const port = 3001;
 
 app.use(adminRoutes);
 app.use(shopRoutes);
