@@ -24,7 +24,7 @@ exports.postContactus = (req, res, next) => {
    const mailOptions = {
       from: 'seizurecare@gmail.com',
       to: 'seizurecare@gmail.com',
-      subject: 'Patient Contact from SeizureCarenet.com',
+      subject: `Contact from ${firstname} ${lastname}`,
       html: emailTemplate      
    };
 
