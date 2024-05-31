@@ -1,20 +1,20 @@
 exports.postContactus = (req, res, next) => {
    console.log(req.body);
+   const { firstname, lastname, email, phone, country, message } = req.body;  
    const nodemailer = require('nodemailer');
 
    const transporter = nodemailer.createTransport({
          service: 'gmail',
          auth: {
             user: 'seizurecare@gmail.com',
-            pass: 'Aravindsreekrishna'
+            pass: 'nkabwdtcphyqrfif'
          }
    });
 
-   const emailTemplate = `
-      <h2>Contact Us</h2>      
-      <p>Here are the details you provided:</p>
+   const emailTemplate = `     
+      <h2>Below are the details provided by the user from contact us form:</h2>
       <ul>
-          <li><strong>Name:</strong> ${firstname}  ${lastname}</li>
+         <li><strong>Name:</strong> ${firstname}  ${lastname}</li>
           <li><strong>Email:</strong> ${email}</li>
           <li><strong>Phone:</strong> ${phone}</li>
           <li><strong>Country:</strong> ${country}</li>
@@ -29,6 +29,7 @@ exports.postContactus = (req, res, next) => {
    };
 
    transporter.sendMail(mailOptions, function(error, info){
+      console.log(error);
       if (error) {
          res.status(500).send('Something went wrong.');     
       } else {
