@@ -15,14 +15,17 @@ const bodyParser = require('body-parser');
 
 //const upload = multer({ storage: storage })
 
+const db = require('./util/database');
+
 const app = express();
 const cors = require('cors'); 
-const adminRoutes = require('./routes/admin');
-const shopRoutes  = require('./routes/shop');
-const authRoutes  = require('./routes/auth');
+// const adminRoutes = require('./routes/admin');
+ const testRoutes  = require('./routes/test');
+// const authRoutes  = require('./routes/auth');
 const loginRoutes  = require('./routes/login');
 const contactusRoutes = require('./routes/contactus');
 const patientFormRoutes = require('./routes/patientform');
+const signupRoutes = require('./routes/signup');
 
 const corsOptions = {
   credentials: true,
@@ -47,13 +50,15 @@ app.use(bodyParser.json());
 
 const port = 3001;
 
-app.use(adminRoutes);
-app.use(shopRoutes);
-app.use('/auth', authRoutes);
+// app.use(adminRoutes);
+ app.use(testRoutes);
+// app.use('/auth', authRoutes);
 app.use(loginRoutes);
 app.use(contactusRoutes);
 // app.use(upload.single('file'), patientFormRoutes);
-app.use(patientFormRoutes)
+app.use(patientFormRoutes);
+app.use(signupRoutes);
+
 
 app.use((req, res, next) => {
     res.status(404).send('Page not found');
