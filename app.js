@@ -35,7 +35,7 @@ const corsOptions = {
     "https://seizurecarenet.com",
     "http://localhost:3001",
     "https://localhost:3001",
-    "https://www.seizurecarenet.in",
+    "https://seizurecarenet.in",
   ], // Whitelist the domains you want to allow
 };
 
